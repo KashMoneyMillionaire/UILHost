@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost", "UILHost\UILHost.csproj", "{F0EFDFDA-6F8A-455D-BD59-645D8C75C49E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Web", "UILHost\UILHost.Web.csproj", "{F0EFDFDA-6F8A-455D-BD59-645D8C75C49E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Tests", "UILHost.Tests\UILHost.Tests.csproj", "{D4B1D307-FFAD-4F34-87FE-AC582D170C85}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 	ProjectSection(SolutionItems) = preProject
 		PublishScripts\Configurations\UILHost-WAWS-dev.json = PublishScripts\Configurations\UILHost-WAWS-dev.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Infrastructure", "UILHost.Infrastructure\UILHost.Infrastructure.csproj", "{13309CF3-6204-4613-BB4C-B3DAD536D159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{D4B1D307-FFAD-4F34-87FE-AC582D170C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B1D307-FFAD-4F34-87FE-AC582D170C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B1D307-FFAD-4F34-87FE-AC582D170C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13309CF3-6204-4613-BB4C-B3DAD536D159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13309CF3-6204-4613-BB4C-B3DAD536D159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13309CF3-6204-4613-BB4C-B3DAD536D159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13309CF3-6204-4613-BB4C-B3DAD536D159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
