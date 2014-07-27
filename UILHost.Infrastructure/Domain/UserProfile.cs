@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenefitMall.Pavlos.Infrastructure.Entity;
 
 namespace UILHost.Infrastructure.Domain
 {
@@ -21,38 +22,39 @@ namespace UILHost.Infrastructure.Domain
         MigratePassword = 1,
     }
 
-    public class UserProfile
+    public class UserProfile : EntityBase<long>
     {
-        public string Username { get; set; }
+        public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public School School { get; set; }
 
         public string PasswordHash { get; private set; }
         public string PasswordSalt { get; private set; }
 
-        public DateTime? LastUnsuccessfulLoginAttempt { get; set; }
-        public int? CurrentUnsuccessfulLoginCount { get; set; }
+        //public DateTime? LastUnsuccessfulLoginAttempt { get; set; }
+        //public int? CurrentUnsuccessfulLoginCount { get; set; }
 
-        public UserProfileFlags Flags { get; set; }
+        //public UserProfileFlags Flags { get; set; }
 
-        public string DataMigrationProvider { get; set; }
-        public UserProfileDataMigrationFlags DataMigrationFlags { get; set; }
+        //public string DataMigrationProvider { get; set; }
+        //public UserProfileDataMigrationFlags DataMigrationFlags { get; set; }
 
-        public List<UserProfileSecurityQuestion> UserProfileSecurityQuestions { get; set; }
-        public List<ClientUserProfile> ClientUserProfiles { get; set; }
+        //public List<UserProfileSecurityQuestion> UserProfileSecurityQuestions { get; set; }
+        //public List<ClientUserProfile> ClientUserProfiles { get; set; }
 
         public UserProfile() : this(null, null, null, null) { }
-        public UserProfile(string username, string firstName, string lastName, string clearTextPassword)
+        public UserProfile(string email, string firstName, string lastName, string clearTextPassword)
         {
-            Username = username;
+            Email = email;
             FirstName = firstName;
-            LastName = LastName;
+            LastName = lastName;
             SetPassword(clearTextPassword);
-            Flags = UserProfileFlags.Active;
-            DataMigrationFlags = UserProfileDataMigrationFlags.Undefined;
+            //Flags = UserProfileFlags.Active;
+            //DataMigrationFlags = UserProfileDataMigrationFlags.Undefined;
 
-            ClientUserProfiles = new List<ClientUserProfile>();
-            UserProfileSecurityQuestions = new List<UserProfileSecurityQuestion>();
+            //ClientUserProfiles = new List<ClientUserProfile>();
+            //UserProfileSecurityQuestions = new List<UserProfileSecurityQuestion>();
         }
 
         public void SetPassword(string clearTextPassword)
@@ -69,24 +71,24 @@ namespace UILHost.Infrastructure.Domain
 
         public void LogBadPasswordAttempt()
         {
-            if (LastUnsuccessfulLoginAttempt == null ||
-                LastUnsuccessfulLoginAttempt < DateTime.Now.AddMilliseconds(AppConfigFacade.LastBadLoginTimePeriodThreshold * -1))
-            {
-                LastUnsuccessfulLoginAttempt = DateTime.Now;
-                CurrentUnsuccessfulLoginCount = 0;
-            }
+            //if (LastUnsuccessfulLoginAttempt == null ||
+            //    LastUnsuccessfulLoginAttempt < DateTime.Now.AddMilliseconds(AppConfigFacade.LastBadLoginTimePeriodThreshold * -1))
+            //{
+            //    LastUnsuccessfulLoginAttempt = DateTime.Now;
+            //    CurrentUnsuccessfulLoginCount = 0;
+            //}
 
-            CurrentUnsuccessfulLoginCount++;
+            //CurrentUnsuccessfulLoginCount++;
 
-            if (CurrentUnsuccessfulLoginCount >= AppConfigFacade.LastBadLoginAttemptsThreshold)
-            {
-                Flags = Flags.SetFlag<UserProfileFlags>(UserProfileFlags.BadLoginAttemptLockedOut);
-            }
+            //if (CurrentUnsuccessfulLoginCount >= AppConfigFacade.LastBadLoginAttemptsThreshold)
+            //{
+            //    Flags = Flags.SetFlag<UserProfileFlags>(UserProfileFlags.BadLoginAttemptLockedOut);
+            //}
         }
 
-        public void ResetBadPasswordAttempt()
-        {
-            CurrentUnsuccessfulLoginCount = 0;
-        }
+        //public void ResetBadPasswordAttempt()
+        //{
+        //    CurrentUnsuccessfulLoginCount = 0;
+        //}
     }
 }
