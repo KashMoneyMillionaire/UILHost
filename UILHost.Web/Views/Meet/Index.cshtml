@@ -1,0 +1,11 @@
+﻿@model IEnumerable<UILHost.Infrastructure.Domain.Meet>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var meet in Model)
+{
+  <h2>@meet.HostSchool.Name</h2>
+}

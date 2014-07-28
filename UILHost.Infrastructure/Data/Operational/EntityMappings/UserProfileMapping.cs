@@ -11,30 +11,34 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
         {
             // PRIMARY KEY
 
-            this.HasKey(u => u.Id);
+            HasKey(u => u.Id);
 
             // PROPERTIES
 
-            this.Property(u => u.Id)
+            Property(u => u.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(u => u.Email)
+            Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            this.Property(u => u.FirstName)
+            Property(u => u.FirstName)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            this.Property(u => u.LastName)
+            Property(u => u.LastName)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            this.Property(u => u.PasswordHash)
+            HasOptional(u => u.School);
+
+            Property(u => u.UserProfilePermissionFlag);
+
+            Property(u => u.PasswordHash)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            this.Property(u => u.PasswordSalt)
+            Property(u => u.PasswordSalt)
                 .IsRequired()
                 .HasMaxLength(100);
 

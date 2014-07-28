@@ -1,5 +1,4 @@
-﻿using BenefitMall.Pavlos.Infrastructure.Entity;
-using System;
+﻿using UILHost.Infrastructure.Entity;
 
 namespace UILHost.Infrastructure.Domain
 {
@@ -8,6 +7,5 @@ namespace UILHost.Infrastructure.Domain
         public int StateNum { get; set; }
         public string StateCode { get; set; }
         public string StateName { get; set; }
-        public bool ActiveFlg { get; set; }
     }
 }

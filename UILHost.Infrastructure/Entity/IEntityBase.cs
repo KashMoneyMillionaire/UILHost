@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BenefitMall.Pavlos.Infrastructure.Entity
+namespace UILHost.Infrastructure.Entity
 {
     public interface IEntityBase<TIdentityType> : IEntityBase
     {

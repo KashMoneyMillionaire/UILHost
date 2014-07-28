@@ -1,5 +1,5 @@
-﻿using BenefitMall.Pavlos.Infrastructure.Entity;
-using System;
+﻿using System;
+using UILHost.Infrastructure.Entity;
 
 namespace UILHost.Infrastructure.Domain
 {

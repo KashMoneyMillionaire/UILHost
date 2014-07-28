@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BenefitMall.Pavlos.Infrastructure.Entity;
+using UILHost.Infrastructure.Entity;
 
 namespace UILHost.Infrastructure.Domain
 {
     [Flags]
-    public enum UserProfileFlags : long
+    public enum UserProfilePermissionFlag : long
     {
         Undefined = 0,
-        Active = 1,
-        BadLoginAttemptLockedOut = 2
-    }
-
-    [Flags]
-    public enum UserProfileDataMigrationFlags : long
-    {
-        Undefined = 0,
-        MigratePassword = 1,
+        Director = 1,
+        Teacher = 2,
+        All = 3
     }
 
     public class UserProfile : EntityBase<long>
@@ -28,6 +22,8 @@ namespace UILHost.Infrastructure.Domain
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public School School { get; set; }
+
+        public UserProfilePermissionFlag UserProfilePermissionFlag { get; set; }
 
         public string PasswordHash { get; private set; }
         public string PasswordSalt { get; private set; }
@@ -43,20 +39,6 @@ namespace UILHost.Infrastructure.Domain
         //public List<UserProfileSecurityQuestion> UserProfileSecurityQuestions { get; set; }
         //public List<ClientUserProfile> ClientUserProfiles { get; set; }
 
-        public UserProfile() : this(null, null, null, null) { }
-        public UserProfile(string email, string firstName, string lastName, string clearTextPassword)
-        {
-            Email = email;
-            FirstName = firstName;
-            LastName = lastName;
-            SetPassword(clearTextPassword);
-            //Flags = UserProfileFlags.Active;
-            //DataMigrationFlags = UserProfileDataMigrationFlags.Undefined;
-
-            //ClientUserProfiles = new List<ClientUserProfile>();
-            //UserProfileSecurityQuestions = new List<UserProfileSecurityQuestion>();
-        }
-
         public void SetPassword(string clearTextPassword)
         {
             var hash = new SaltedHash(clearTextPassword);
@@ -69,22 +51,22 @@ namespace UILHost.Infrastructure.Domain
             return new SaltedHash(PasswordSalt, PasswordHash).Verify(clearTextPassword);
         }
 
-        public void LogBadPasswordAttempt()
-        {
-            //if (LastUnsuccessfulLoginAttempt == null ||
-            //    LastUnsuccessfulLoginAttempt < DateTime.Now.AddMilliseconds(AppConfigFacade.LastBadLoginTimePeriodThreshold * -1))
-            //{
-            //    LastUnsuccessfulLoginAttempt = DateTime.Now;
-            //    CurrentUnsuccessfulLoginCount = 0;
-            //}
+        //public void LogBadPasswordAttempt()
+        //{
+        //    //if (LastUnsuccessfulLoginAttempt == null ||
+        //    //    LastUnsuccessfulLoginAttempt < DateTime.Now.AddMilliseconds(AppConfigFacade.LastBadLoginTimePeriodThreshold * -1))
+        //    //{
+        //    //    LastUnsuccessfulLoginAttempt = DateTime.Now;
+        //    //    CurrentUnsuccessfulLoginCount = 0;
+        //    //}
 
-            //CurrentUnsuccessfulLoginCount++;
+        //    //CurrentUnsuccessfulLoginCount++;
 
-            //if (CurrentUnsuccessfulLoginCount >= AppConfigFacade.LastBadLoginAttemptsThreshold)
-            //{
-            //    Flags = Flags.SetFlag<UserProfileFlags>(UserProfileFlags.BadLoginAttemptLockedOut);
-            //}
-        }
+        //    //if (CurrentUnsuccessfulLoginCount >= AppConfigFacade.LastBadLoginAttemptsThreshold)
+        //    //{
+        //    //    Flags = Flags.SetFlag<UserProfileFlags>(UserProfileFlags.BadLoginAttemptLockedOut);
+        //    //}
+        //}
 
         //public void ResetBadPasswordAttempt()
         //{

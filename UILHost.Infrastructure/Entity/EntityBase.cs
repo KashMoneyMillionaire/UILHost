@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BenefitMall.Pavlos.Infrastructure.Entity
+namespace UILHost.Infrastructure.Entity
 {
     /// <summary>
     /// Base class for entities that must have an identifier attribute. If Identity Type is Guid, a new one is auto generated here.
     /// </summary>
     /// <typeparam name="TIdentityType">The type of the identifier attribute for the entity</typeparam>
     [Serializable]
-    public abstract class EntityBase<TIdentityType> :
+    public abstract class EntityBase<TIdentityType> : Patterns.Repository.EF6.Entity,
             IEntityBase<TIdentityType>, IEquatable<EntityBase<TIdentityType>> where TIdentityType : struct
     {
         private object _id;
