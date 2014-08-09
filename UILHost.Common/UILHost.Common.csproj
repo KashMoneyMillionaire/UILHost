@@ -54,19 +54,9 @@
     <Compile Include="AutoMapper\IMap.cs" />
     <Compile Include="AutoMapper\IMapFrom.cs" />
     <Compile Include="AutoMapper\IMapFromPageData.cs" />
-    <Compile Include="CustomConfigurationHandler.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="EnumExtensions.cs" />
-    <Compile Include="GuidHelper.cs" />
-    <Compile Include="Logging\System\ApplicationLog.cs" />
-    <Compile Include="PayrollApplication\Enumerations.cs" />
-    <Compile Include="PayrollApplication\IPayrollApplicationReportingService.cs" />
-    <Compile Include="PayrollApplication\IReportItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReflectionUtil.cs" />
-    <Compile Include="TokenReplacer.cs" />
-    <Compile Include="TokenValuesCollection.cs" />
-    <Compile Include="TraceLoggers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

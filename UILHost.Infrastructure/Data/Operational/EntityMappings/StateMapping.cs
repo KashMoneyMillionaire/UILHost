@@ -17,13 +17,13 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
             Property(c => c.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(c => c.StateNum)
+            Property(c => c.Number)
                 .IsRequired();
 
-            Property(c => c.StateCode)
+            Property(c => c.Code)
                 .IsRequired();
 
-            Property(c => c.StateName)
+            Property(c => c.Name)
                 .IsRequired();
         }
     }

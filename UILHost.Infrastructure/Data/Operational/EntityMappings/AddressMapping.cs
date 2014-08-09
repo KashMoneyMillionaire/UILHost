@@ -26,7 +26,9 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
             Property(c => c.City)
                 .IsOptional();
 
-            HasOptional(r => r.State);
+            HasOptional(r => r.State)
+                .WithMany()
+                .WillCascadeOnDelete(false);
 
             Property(c => c.ZipCode)
                 .IsOptional();

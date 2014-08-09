@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UILHost.Patterns.Repository.Repositories;
 using UILHost.Infrastructure.Domain;
-using UILHost.Patterns.Repository.Repositories;
 
 namespace UILHost.Infrastructure.Repository
 {
@@ -25,7 +24,7 @@ namespace UILHost.Infrastructure.Repository
         public static State ReadByCode(this IRepositoryAsync<State> repo, string code)
         {
             return repo.Queryable()
-                .FirstOrDefault(c => c.StateCode == code);
+                .FirstOrDefault(c => c.Code == code);
         }
 
         public static State ReadByNum(this IRepositoryAsync<State> repo, string numberString)
@@ -33,7 +32,7 @@ namespace UILHost.Infrastructure.Repository
             //Returns 0 if can't convert
             var stateNumber = Convert.ToInt32(numberString);
             return repo.Queryable()
-                .FirstOrDefault(c => c.StateNum == stateNumber);
+                .FirstOrDefault(c => c.Number == stateNumber);
 
         }
     }

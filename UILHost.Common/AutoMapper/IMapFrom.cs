@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UILHost.Common.AutoMapper
+﻿namespace UILHost.Common.AutoMapper
 {
     /// <summary>
     /// Marker interface for helping with AutoMapper mapping in view models

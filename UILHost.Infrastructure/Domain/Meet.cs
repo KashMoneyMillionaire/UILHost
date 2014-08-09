@@ -9,8 +9,7 @@ namespace UILHost.Infrastructure.Domain
         public School HostSchool { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public List<School> Schools { get; set; }
-        public List<MeetEvent> Events { get; set; }
-        public List<Student> Students { get; set; } 
+        public List<MeetSchool> CompetingSchools { get; set; }
+        public List<MeetEvent> MeetEvents { get; set; }
     }
 }

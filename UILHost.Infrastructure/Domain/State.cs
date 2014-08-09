@@ -4,8 +4,8 @@ namespace UILHost.Infrastructure.Domain
 {
     public class State : EntityBase<long>
     {
-        public int StateNum { get; set; }
-        public string StateCode { get; set; }
-        public string StateName { get; set; }
+        public int Number { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
     }
 }

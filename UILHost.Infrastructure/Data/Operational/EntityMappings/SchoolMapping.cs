@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UILHost.Infrastructure.Domain;
 
 namespace UILHost.Infrastructure.Data.Operational.EntityMappings
@@ -26,9 +21,14 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
             Property(p => p.Classification);
 
             HasRequired(o => o.Address);
-            HasRequired(o => o.MeetLeader);
+
+            HasMany(o => o.Teachers)
+                .WithOptional()
+                .WillCascadeOnDelete(false);
 
             HasMany(o => o.Students);
+
+            HasMany(s => s.HostedMeets);
         }
     }
 }

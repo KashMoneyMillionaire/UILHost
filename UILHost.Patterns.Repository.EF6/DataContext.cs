@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace UILHost.Patterns.Repository.EF6
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
-    public class DataContext : DbContext, IDataContext, IDataContextAsync
+    public class DataContext : DbContext    , IDataContextAsync
     {
         private readonly Guid _instanceId;
 

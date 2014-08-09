@@ -17,17 +17,17 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
             Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            HasRequired(o => o.HostSchool);
+            HasRequired(o => o.HostSchool)
+                .WithMany(s => s.HostedMeets)
+                .WillCascadeOnDelete(true);
+
             Property(o => o.StartTime);
             Property(o => o.EndTime);
 
-            HasMany(o => o.Schools)
-                .WithMany();
-            HasMany(o => o.Events)
-                .WithMany();
-            HasMany(o => o.Students)
-                .WithMany();
-            
+            HasMany(o => o.CompetingSchools);
+
+            HasMany(o => o.MeetEvents);
+
         }
     }
 }

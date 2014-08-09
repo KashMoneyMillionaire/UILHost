@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Logging;
-using UILHost.Infrastructure.ChangeDataCapture;
 using UILHost.Patterns.Repository.DataContext;
 using UILHost.Patterns.Repository.EF6;
 
@@ -14,18 +13,16 @@ namespace UILHost.Infrastructure.Data.Patterns
     /// </summary>
     public class UnitOfWorkExt : UnitOfWork
     {
-        private ILog log = LogManager.GetLogger(typeof (UnitOfWorkExt));
+        private ILog log = LogManager.GetLogger(typeof(UnitOfWorkExt));
 
         private readonly IDataContextAsync _context;
-        private readonly ChangeDataCaptureStateManager _stateManager;
         private readonly UnitOfWorkCommitActivities _commitActivities;
 
         public UnitOfWorkExt(
-            IDataContextAsync context, 
-            ChangeDataCaptureStateManager stateManager) : base(context)
+            IDataContextAsync context)
+            : base(context)
         {
             this._context = context;
-            _stateManager = stateManager;
             _commitActivities = new UnitOfWorkCommitActivities();
         }
 
@@ -34,7 +31,6 @@ namespace UILHost.Infrastructure.Data.Patterns
         public override int SaveChanges()
         {
             var saveResult = base.SaveChanges();
-            this._stateManager.CommitState(this);
             _commitActivities.PerformCommitActivities().Wait();
             return saveResult;
         }
@@ -45,14 +41,13 @@ namespace UILHost.Infrastructure.Data.Patterns
             return base.SaveChangesAsync()
                 .ContinueWith(task =>
                 {
-                    if(task.Exception != null)
+                    if (task.Exception != null)
                         task.Exception.Handle(ex =>
                         {
                             this.log.Error("An asynchrounous save activity failed", ex);
                             return false;
                         });
 
-                    this._stateManager.CommitState(this);
                     _commitActivities.PerformCommitActivities().Wait();
                     return task.Result;
                 });
@@ -64,14 +59,13 @@ namespace UILHost.Infrastructure.Data.Patterns
             return base.SaveChangesAsync(cancellationToken)
                 .ContinueWith(task =>
                 {
-                    if(task.Exception != null)
+                    if (task.Exception != null)
                         task.Exception.Handle(ex =>
                         {
                             this.log.Error("An asynchrounous save activity failed", ex);
                             return false;
                         });
 
-                    this._stateManager.CommitState(this);
                     _commitActivities.PerformCommitActivities().Wait(cancellationToken);
                     return task.Result;
                 }, cancellationToken);

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UILHost.Infrastructure.Domain;
 
 namespace UILHost.Infrastructure.Data.Operational.EntityMappings
@@ -15,17 +10,22 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
         {
             // PRIMARY KEY
 
-            this.HasKey(p => p.Id);
+            HasKey(p => p.Id);
 
             // PROPERTIES
 
-            this.Property(p => p.Id)
+            Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            HasRequired(p => p.Meet);
-            HasRequired(p => p.Event);
+            HasRequired(p => p.Meet)
+                .WithMany(m => m.MeetEvents)
+                .WillCascadeOnDelete(true);
 
-            HasMany(o => o.Students);
+            HasRequired(p => p.Event)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            HasMany(o => o.EventStudents);
 
 
         }

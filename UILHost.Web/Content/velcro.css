@@ -1,0 +1,1399 @@
+/*
+LOGO BLUE #007bc3
+DARK BLUE #005892
+LIGHT BLUE #e5f2fa (add/plus button)
+LIGHTest BLUE #f2f8fc (alternating table rows)
+Gray #c3c3c3
+Dark Gray #a3a3a3
+Light BORDER GRAY #e0e0e0
+Light BG GRAY #f2f2f2
+Even Lighter BG #f9f9f9
+Red #d33939
+Green #94C947
+Dark Green #68952D
+*/
+
+/* This html stuff is for sticky footer only */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  /* what is this for? forcing scrollbars always? */
+  /* overflow: scroll; */
+  color: #7d7d7d;
+  /* Margin bottom by footer height */
+  margin-bottom: 4em;
+  /* A fix for Chrome, overflow scroll was causing scrollbars to appear when company chooser dropdown was selected, 
+     and the dropdown exteneded past the body -and in Chrome, the body ends where the non-footer content ends
+     (this is a result of having a fixed footer) */
+  /*padding-bottom: 10em;*/ 
+}
+.container {
+  width: auto;
+}
+
+.validation-summary-errors,
+.field-validation-error {
+  color: #d33939;
+}
+.validation-summary-errors {
+  display: block;
+}
+
+/*
+  ___  ___  ___  _  _  ___  _  _  
+ / __||_ _|/ __|| \| ||_ _|| \| | 
+ \__ \ | || (_ || .` | | | | .` | 
+ |___/|___|\___||_|\_||___||_|\_| 
+                                  
+ SIGNIN PAGE */
+
+.signin {
+  background: url(../img/bg-white-texture.jpg) repeat top left;
+}
+
+.signin-form-container {
+  max-width: 410px;
+  margin: 5% auto 0;
+  padding: 1em;
+}
+.signin-form-container .form-group {
+  margin-bottom: 20px;
+}
+.signin-form-container .checkbox {
+  margin-top: 0;
+  float: right;
+}
+.login-btn-container,
+.signin-form-container span.forgot-password {
+  float: right;
+  clear: right;
+}
+.login-btn-container {
+  margin-bottom: 10px;
+}
+
+.signin .alert {
+  padding: 6px 12px;
+  margin-top: .5em;
+}
+.dynamic-alert-container span {
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  color: #a94442;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: .5em;
+  padding: 6px 12px;
+}
+
+.lone-content {
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  max-width: 410px;
+  margin: 3% auto 2em;
+  padding: 0 1em 1em;
+}
+.lone-content .k-widget {
+  width: 27em;
+}
+.lone-content .btn {
+  width: 100%;
+}
+.lone-content span.default-company {
+  display: block;
+  /* white-space: nowrap; */
+  font-weight: bold;
+  color: #94C947;
+  font-size: 1.25em;
+}
+.password-requirement-list {
+  text-align: left;
+  list-style-type: circle;
+  width: 80%;
+  margin: 10px auto 0;
+}
+
+/*
+  _     ___    ___   ___  
+ | |   / _ \  / __| / _ \ 
+ | |__| (_) || (_ || (_) |
+ |____|\___/  \___| \___/ 
+                          
+ LOGO AREA */
+
+.header {
+  padding: 1.5em 0;
+}
+
+.logo-container {
+  float: left;
+  margin-left: 1.625em;
+  white-space: nowrap; /* IE8 */
+} 
+.logo-container img {
+  float: left;
+  /*Logo size will stop at whichever of the following comes first */
+  max-height: 4em; 
+  max-width: 12.857142857em; /* 180/14px */
+}
+.app-title {
+  background: url(../img/pipe.png) center left no-repeat;
+  display: inline-block;
+  color: #007bc3;
+  font-weight: 500;
+  font-size: 1.625em;
+  padding: 0.2884615384615385em 1em;
+  margin-top: 0.21978021978022em; /* 5/22.75px */
+  margin-left: 1em;
+}
+
+/*
+  _   _  _____  ___  _     ___  _____  ___  ___  ___ 
+ | | | ||_   _||_ _|| |   |_ _||_   _||_ _|| __|/ __|
+ | |_| |  | |   | | | |__  | |   | |   | | | _| \__ \
+  \___/   |_|  |___||____||___|  |_|  |___||___||___/
+                                                     
+UTILITITES - COMPANY CHOOSER | INBOX | PROFILE */
+
+.utilities {
+  float: right;
+  margin-right: 1.625em;
+}
+.company-container h2 {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;      
+  margin: 0;
+  padding: 0.71428571428571em;
+  font-weight: 400;
+}
+.inbox-container {
+  min-width: 6em;
+  text-align: center;
+}
+.inbox-container h2 {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}
+.badge {
+  background: #d43939;
+  border: 2px solid white;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  height: 25px;
+  margin-left: -1em;margin-top: -1em;
+  padding: 4px 0;
+  position: absolute;
+  width: 25px;
+}
+.message-list-container {
+  width: 350px;
+  margin-left: -134px;
+  padding: 0;
+  display: none;
+  text-align: left;
+}
+.message-list-container h3 {
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+}
+.message-list-container ul {
+  margin: 0;
+}
+.message-list-container li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.message-list-container li:hover {
+  background: #f9f9f9;
+}
+.message-list-container p {
+  color: #262626;
+  margin: 0;
+  font-weight: 300;
+}
+.message-list-container li.new p {
+  color: #007bc3;
+}
+.ml-date {
+  float: right;
+}
+.ml-name {
+  font-weight: 400;
+}
+.ml-checkbox {
+  float: right;
+  margin: 1.6em 0 0 1em !important;
+}
+.ml-actions {
+  text-align: center;
+  padding: 10px;
+}
+.ml-actions .edit {
+  float: left;
+}
+.ml-actions .btn-view-sent {
+  padding: 8px 24px;
+}
+.ml-actions .trash {
+  float: right;
+}
+.profile div {
+  cursor: pointer;
+}
+.profile img {
+  max-height: 4.125em; /*  solution for IE8 */
+  max-width: 4.125em; /* "width: 4.125em" would be ideal, but causes problem with excess space extending beyond the page in IE8  */
+  margin-right: 0.28571428571429em; /* 4/14px */
+}
+.profile .dropdown-menu {
+  padding-bottom: 0;
+}
+.profile .dropdown-menu li a {
+  padding: .25em 1em;
+  display: block;
+}
+.profile .dropdown-menu li a:hover {
+  background: #f2f2f2;
+  text-decoration: none;
+}
+
+/*
+  _  _    _ __   __ ___  ___    _  _____  ___  ___   _  _ 
+ | \| |  /_\\ \ / /|_ _|/ __|  /_\|_   _||_ _|/ _ \ | \| |
+ | .` | / _ \\ V /  | || (_ | / _ \ | |   | || (_) || .` |
+ |_|\_|/_/ \_\\_/  |___|\___|/_/ \_\|_|  |___|\___/ |_|\_|
+                                                          
+ NAVIGATION */
+
+.navbar {
+  background: #007ac3;
+  border: none;
+  border-radius: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 2px;
+}
+.navbar-nav {
+  width: 100%;
+  /*border-left: 1px solid #005892;*/
+  margin-left: -30px;
+}
+/*.navbar-collapse, .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+*/
+.navbar a {
+  color: white;
+}
+.navbar-default .navbar-nav > li {
+  width: 16%;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 1.285714285714286em;
+  padding: .75em 0;
+  font-weight: 300;
+  border-right: 1px solid #005892;
+  text-align: center;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar .nav li.dropdown.open > .dropdown-toggle {
+  background: #005892;
+  color: white;
+  moz-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+  box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+}
+  .navbar .dropdown-menu {
+    padding: 0;
+    background: #007bc3;
+  }
+  .navbar .dropdown-menu > li > a {
+    color: white;
+    font-size: 1.285714285714286em;
+    padding: .5em 1em;
+    font-weight: 300;
+  }
+  .navbar .dropdown-menu > li > a:hover {
+    background: #005892;
+    color: white;
+    /*moz-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 10px rgba(0,0,0,.3);*/
+  }
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    border-color: #005892;
+  }
+
+  li.question-circle {
+    width: auto !important;
+  }
+  a.fa.fa-question-circle {
+   border-right: none !important;
+   padding-left: 1em !important;
+   padding-right: 1em !important;
+   margin-right: -60px;
+  }
+
+
+/* MOBILE NAV */
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+.navbar-default .navbar-toggle {
+  border: none;
+  background-color: #005892;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus  {
+background-color: #005892;
+}
+
+
+/* "HAVE YOU SEEN AVATAR?" */
+/* Makes the shape, border, and shadow -but not sizing */
+.header .avatar {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  border: 3px solid #fff;
+  margin-right: 0.28571428571429em;
+}
+
+
+/* 
+  _____ __   __ ___   ___    ___  ___    _    ___  _  _ __   __
+ |_   _|\ \ / /| _ \ / _ \  / __|| _ \  /_\  | _ \| || |\ \ / /
+   | |   \ V / |  _/| (_) || (_ ||   / / _ \ |  _/| __ | \ V / 
+   |_|    |_|  |_|   \___/  \___||_|_\/_/ \_\|_|  |_||_|  |_|  
+                                                               
+ Typography */
+
+/*h2 {
+  color: #007bc3;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}*/
+h2.page-title {
+  color: #005892;
+  font-size: 24px;
+  margin: 10px 0 30px;
+  font-weight: 600;
+}
+
+
+.new-well {
+  background: url(../img/bg-white-texture.jpg) repeat top left;
+  border-top: 1px solid   #e0e0e0;
+  border-bottom: 1px solid   #e0e0e0;
+  margin: 10px -15px 30px -15px;
+  line-height: 1;
+  padding: 0 0 0 15px;
+}
+.new-well ul {
+  max-width: 1000px;
+  overflow: hidden;
+  border-left: 1px solid #e0e0e0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.new-well ul li {
+  float: left;
+  width: 33%;
+  border-left: 1px solid white;
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+  line-height: 1;
+  padding: 15px 0 10px;
+}
+.new-well ul li:last-child {
+  border-right: none;
+}
+/*
+  _____  _    ___  ___ 
+ |_   _|/_\  | _ )/ __|
+   | | / _ \ | _ \\__ \
+   |_|/_/ \_\|___/|___/
+                       
+*/
+
+/* HORIZONTAL TABS */
+
+.horizontal-tabs-container {
+  margin-bottom: 2em;
+}
+.horizontal-tabs {
+  margin-bottom: 0;
+}
+.horizontal-tabs li {
+  float: left;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  background: white;
+  margin-right: .5em;
+}
+.horizontal-tabs li a {
+  display: block;
+  padding: 1.25em 4em;
+  font-weight: 300;
+  text-decoration: none;
+  line-height: 1;
+}
+.horizontal-tabs li.active {
+  background: #f2f2f2;
+}
+.horizontal-tabs li.active a {
+  font-weight: 500;
+  color: #555;
+}
+.horizontal-tabs-content {
+  clear: both;
+  border: 1px solid #e0e0e0;
+  line-height: 1;
+}
+
+/* VERTICAL TABS */
+
+.vertical-tabs-container {
+  margin-bottom: 2em;
+}
+.vertical-tabs-container > ul {
+  float: left;
+}
+.vertical-tabs li {
+  border: 1px solid #e0e0e0;
+  width: 90px; 
+  margin-bottom: 1em;
+}
+.vertical-tabs li.active {
+  border-right: 1px solid white;
+  z-index: 10;
+}
+.vertical-tabs li.active a:hover {
+  background: white;
+}
+.vertical-tabs li a {
+  display: block;
+  height: 90px;
+  padding-top: 20px;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.vertical-tabs li a:hover {
+  background: #f2f2f2;
+  color: #007ac3;
+}
+.vertical-tabs li a span {
+  display: block;
+  font-size: 30px;
+}
+.vertical-tabs li.active a {
+  color: #94C947;
+  cursor: default;
+}
+.vertical-tabs-content {
+  margin-left: 89px;
+  border: 1px solid #e0e0e0;
+  min-height: 500px;
+  padding: 1em 2em;
+}
+.vertical-tabs-content h2 {
+  color: #005892;
+  font-size: 1.714285714em; /* 24/14px */
+  font-weight: 400;
+  margin: .5em 0 1.25em; /* 12/24px & 30/24px */
+}
+.vertical-tabs-content h2 span {
+  display:block;
+  font-size: .583333333em; /* 14/24px */
+  margin-top: .357142857em; /* 5/14px */
+  font-style: italic;
+  font-weight: 300;
+}
+.vertical-tabs-content h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+} 
+.vertical-tabs-content p {
+  font-weight: 300;
+}
+.vertical-tabs-content .avatar-container {
+  font-size: 26px;
+  float: left;
+}
+.vertical-tabs-content .avatar {
+  /* max-width: 2.416666667em; */
+}
+
+/*
+  _____ _   ___ _    ___ ___ 
+ |_   _/_\ | _ ) |  | __/ __|
+   | |/ _ \| _ \ |__| _|\__ \
+   |_/_/ \_\___/____|___|___/
+                             
+ TABLES (NOW WITH KENDO */
+
+/*  For SHELBO, needs clarification */
+.icon-padded {
+  padding-left: 20px;
+}
+
+/* TYPE A - TYPE A - TYPE A */
+/*
+    This is the normal mega kendo table
+        
+*/
+.table-type-a-container {}
+.table-type-a {}
+
+k-grid {
+  border-radius: 0;
+}
+
+.k-widget {
+  border-color: #e0e0e0;
+  color: #555;
+}
+div.k-grid-header {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 400;
+  border: none;
+}
+.k-grid td {
+  border-color: white;
+  padding: .6em;
+  /*color: #555;*/
+}
+tr.k-state-selected a {
+  color: white;
+}
+tr.k-alt.k-state-selected,
+tr.k-state-selected {
+    background: #007bc3;
+}
+.k-grid-content {}
+.k-pager-wrap {
+  background: transparent;
+  border: none;
+}
+/* Controls the Table Header <TH> */
+.k-grid-header .k-header {
+  text-align: center;
+  font-size: .714285714em; /* 10/14 */
+  font-weight: 600;
+  background: #f2f2f2;
+  padding: 1em .5em;
+  border-color: #e0e0e0;
+  border-left-color: white;
+  text-transform: uppercase;
+}
+/* Alternating Row BGs */
+.k-alt, 
+.k-separator {
+  background-color: #f2f8fc;
+}
+
+/* table on the reports page had an odd border */
+.k-grid-header-wrap, 
+.k-grid-footer-wrap {
+  border: none;
+}
+div.k-grid-header {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 400;
+  border: none;
+}
+.k-grid tr td {
+  border-color: white;
+  padding: .6em;
+}
+.k-grid-content {}
+.k-pager-wrap {
+  background: transparent;
+  border: none;
+}
+/* Alternating Row BGs */
+.k-alt, 
+.k-separator {
+  background-color: #f2f8fc;
+}
+
+/* table on the reports page had an odd border */
+.k-grid-header-wrap, 
+.k-grid-footer-wrap {
+  border: none;
+}
+
+.grid-text-center {
+  text-align: center;
+}
+.grid-text-right {
+  text-align: right;
+}
+
+.non-table-totals {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: .5em;
+}
+.non-table-total {
+  float: left;
+  text-align: center;
+  font-size: 1.142857143em;
+  padding: 0 1em;
+  font-style: italic;
+  margin: -.5em 0 .5em 0;
+  font-weight: 600;
+}
+.box-1 {
+  border-right: 1px solid #e0e0e0;
+}
+.employee-name-cell label {
+  font-weight: 400;
+}
+.employee-name-cell a,
+.deductions-cell a {
+  font-size: .857142857em; /*12px f  12/14*/
+  display: block;
+  font-style: italic;
+  text-decoration: underline;
+  color: #555;
+  cursor: pointer;
+}
+.employee-name-cell a {
+  display: inline-block; /* so that the popover can scoot right next to this */
+  white-space: nowrap;
+}
+.employee-name-cell label,
+.deductions-cell label {
+  line-height: 1.1;
+}
+.employee-name-cell a i {
+  font-size: 20px;
+  vertical-align: bottom;
+  color: #94C947;
+  margin-left: 5px;
+}
+.employee-cell {
+}
+
+.stub-message {
+  clear: both;
+  width: 40%;
+  margin: 1em 0 2em;
+
+}/* Dropdown on Payroll Page*/
+.location-cell span.k-dropdown,
+.department-cell span.k-dropdown {
+  width: 100px;
+}
+#employeeGrid span.k-numerictextbox {
+  width: 95px;
+}
+/*
+.net-pay-cell:before,
+.gross-pay-cell:before,
+.deductions-cell:before,
+.salary-amount-cell:before {
+  content: '$';
+  margin-right: 1px;
+}
+*/
+
+
+
+/* TYPE B - TYPE B - TYPE B */
+/*
+    This will most likely be reverted to a TYPE A, basically the same thing exept with alt alt rows and white header
+*/
+
+
+/* TYPE C - TYPE C - TYPE C */
+/* 
+    Can be found on Payrolls Modal and PayStub Details
+    It doesn't have grid lines, but it does have a single border outline
+    TYPE C is a clean table with typicially 3 columns, 1st = Label, 2nd = Value, 3rd = Value 
+    1st - left aligned, 2nd & 3rd -right aligned
+    The final <TR> can have a class of "totals" which makes it a bold row
+    Can separate from other tables with <hr/>
+*/
+.table-type-c-container {
+  border: 1px solid #e0e0e0;
+  padding: 1.428571429em 1.785714286em .5em; /* 20/14px 25/14px 7/14px */
+  margin-bottom: 1em;
+  color: #555;
+}
+.table-type-c-container table {
+  width: 100%;
+  /*border-bottom: 1px solid #e0e0e0;*/
+}
+.table-type-c-container hr {
+  margin: .5em 0;
+}
+.table-type-c th,
+.table-type-c td {
+  padding: .4em 0;
+}
+.table-type-c .col-1 {
+  width: 50%;
+}
+.table-type-c .col-2,
+.table-type-c .col-3  {
+  width: 25%;
+  text-align: right;  
+}
+.table-type-c td.col-1b {
+  width: 25%;
+  padding-left: 1em;
+}
+.table-type-c .col-2b {
+  width: 50%;
+}
+.table-type-c .col-3b {
+  width: 25%;
+}
+
+.table-type-c td.col-1c {
+    width: 40%;
+    padding-left: 1em;
+}
+
+.table-type-c .col-1c,
+.table-type-c .col-2c,
+.table-type-c .col-3c,
+.table-type-c .col-4c {
+  width: 20%;
+}
+.table-type-c .col-2c,
+.table-type-c .col-3c,
+.table-type-c .col-4c {
+  text-align: center;
+}
+
+.table-type-c th,
+.table-type-c .totals {
+  font-weight: 600;
+}
+/* A separate table for GRAND totals */
+.totals-table .totals {
+  color: #94C947;
+  font-size: 1.285714286em; /* 18/14px */
+}
+.table-type-c .col-1d,
+.table-type-c .col-2d,
+.table-type-c .col-3d,
+.table-type-c .col-4d {
+  width: 22%;
+}
+.table-type-c .col-5d {
+  width: 12%
+}
+
+/* LIST TABLE  (formerly direct-deposit table, formerly TYPE D) */
+/*
+    This is a borderless table, it could amost be a <ul> or <dl>
+    As a general rule, the cells should be evenly spaced (all columns = same % in width)
+    Use container only to create a border around the entire table
+*/
+
+.list-table-container {
+  border: 1px solid #e0e0e0;
+  padding: .75em 1em;
+}
+.list-table {
+  width: 100%;
+  margin-bottom: 2em;
+}
+.list-table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.list-table td {
+  padding-right: 5px;
+}
+.list-table .bank,
+.list-table .account-type,
+.list-table .amount {
+  width: 20%;
+}
+.list-table .transit-number {
+  width: 15%;
+}
+.list-table .account-number {
+  width: 25%;
+}
+.list-table div.checkbox {
+  font-size: .785714286em;
+  margin: 0;
+  white-space: nowrap;
+}
+.list-table div.checkbox input {
+    margin-top: 2px;
+}
+.table-for-three th,
+.table-for-three td {
+  width: 33%;
+}
+.table-for-two th,
+.table-for-two td {
+  width: 50%;
+}
+.table-for-four th,
+.table-for-four td {
+  width: 25%;
+}
+.table-for-five th,
+.table-for-five td {
+  width: 20%;
+}
+
+
+/* 
+  ___  _   _  _____  _____  ___   _  _  ___ 
+ | _ )| | | ||_   _||_   _|/ _ \ | \| |/ __|
+ | _ \| |_| |  | |    | | | (_) || .` |\__ \
+ |___/ \___/   |_|    |_|  \___/ |_|\_||___/
+                                            
+ BUTTONS*/
+
+.btn {
+  background: #C3C3C3;
+  border: none;
+  font-weight: 400;
+  color: white;
+  padding: .5em 1.75em; /* was .75em 1.75em*/
+  /*min-width: 175px;*/
+  outline: none;
+}
+.btn:hover {
+  background: #a3a3a3;
+  color: white;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active {
+  background: #94C947;
+  color: white;
+  outline: none;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: #68952D;
+}
+.btn-plus {
+  background: #e5f2fa;
+  color: #007bc3;
+  font-weight: 500;
+  min-width: 0;
+  padding-right: 1em;
+  border-radius: 20px;
+  padding-right: 2em;
+}
+.btn-plus:hover {
+  background: #e5f2fa;
+  color: #007bc3;
+}
+.btn .glyphicon {
+  margin-left: .5em;
+}
+.btn .glyphicon-plus {
+  margin-left: 0;
+}
+.pagination > li > a,                                                                                
+.pagination > li > span {
+  padding: .5em 1em;
+}
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus {
+  background: #005892;
+}
+.pagination > li > a:hover, 
+.pagination > li > span:hover, 
+.pagination > li > a:focus, 
+.pagination > li > span:focus {
+  background: #f2f2f2;
+}
+.table-buttons {
+  float: right;
+  overflow: hidden;
+  margin-bottom: .5em;
+}
+
+a.text-btn {
+  font-size: 1em;
+  margin: 0 .5em 0 1.5em;
+}
+a.text-btn span {
+  margin-right: .5em;
+  font-size: 1.25em;
+}
+.txt-btn-save {
+  color: #007bc3;
+}
+.txt-btn-cancel {
+  color: #a3a3a3;
+}
+.txt-btn-delete {
+  color: #d33939;
+}
+/* RESET BUTTON on Fringe Benefits Tab (new employee)*/
+#employeeRateMaintForm_reset {
+    text-decoration: underline;
+    margin-top: 30px;
+    display: block;
+    margin-left: 8px;
+    font-size: 11px;
+}
+
+/* 
+  __  __   ___   ___    _    _     ___ 
+ |  \/  | / _ \ |   \  /_\  | |   / __|
+ | |\/| || (_) || |) |/ _ \ | |__ \__ \
+ |_|  |_| \___/ |___//_/ \_\|____||___/
+                                       
+ MODALS*/
+
+.modal-header {
+  padding: .75em;  
+}
+
+.modal-title {
+  text-align: center;
+  font-weight: 300;
+  font-size: 2em;
+}
+.modal-footer {
+  background: #f2f2f2;
+  text-align: center;
+  padding: .75em;
+}
+
+/*
+
+  ___  ___   ___  __  __  ___ 
+ | __|/ _ \ | _ \|  \/  |/ __|
+ | _|| (_) ||   /| |\/| |\__ \
+ |_|  \___/ |_|_\|_|  |_||___/
+                              
+ FORMS */ 
+
+label {
+  color: #595959;
+}
+.form-control {
+/*width: auto;*/
+height: auto;
+}
+.form-group-inner {
+  padding-left: 30px;
+  padding-top: 15px;
+}
+/* for megaforms */
+.input-pair-container {
+  overflow: hidden;
+  color: #555;
+  margin-bottom: 1em;
+}
+.input-pair .row-1 {
+  margin-bottom: 4em;
+}
+.input-pair {
+  float: left;
+  overflow: hidden;
+  width: 33.3%;
+  padding-bottom: .3em;
+}
+.input-pair .k-numerictextbox,
+.input-pair .k-datepicker {
+  width: 100%;
+}
+
+/* Megaforms that use kendo need this to overwrite kendo's desires to do its thing */
+.input-pair .form-control {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ip-1-8,
+.ip-30,
+.ip-50,
+.ip-70,
+.ip-100 {
+  padding-right: .5em;
+  box-sizing: border-box;
+}
+
+.ip-1-8 {
+  width: 12.5%;
+  float: left;
+  margin-bottom: 1em;
+}
+
+.ip-30 {
+  width: 30%;
+  float: left;
+}
+.ip-50 {
+  width: 50%;
+  float: left;
+}
+.ip-70 {
+  width: 70%;
+  float: left;
+}
+.ip-100 {
+  width: 100%;
+}
+.input-pair .checkbox-label {
+  font-weight: 400;
+}
+
+.input-pair label {
+  font-size: 12px;
+}
+#taxPanels .input-pair label {
+  height: 26px;
+}
+
+/* Special layout for TAXES > STATE */
+.ip-1-6 {
+  width: 16.666666667%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: .5em;
+  float: left;
+  margin-bottom: 1.5em;
+}
+
+.ip-1-6 label {
+    font-size: 12px;
+}
+.ip-1-6 input.form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ip-1-6 input .k-widget * {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+.k-filter-menu .k-numerictextbox {
+    width: 100% !important;
+}
+
+.requiredBg {
+  background-color: #e5f2fa !important;
+}
+select option {
+  background-color: #fff !important;
+}
+
+
+/*
+  _  __               _         ___  ___  ___ 
+ | |/ / ___  _ _   __| | ___   / __|/ __|/ __|
+ | ' < / -_)| ' \ / _` |/ _ \ | (__ \__ \\__ \
+ |_|\_\\___||_||_|\__,_|\___/  \___||___/|___/
+                                              
+ KENDO */ 
+
+/* Header Dropdown selector */
+.company-container .k-widget {
+  width: 24em; /* 336/14px */
+}
+
+/* Accordion */
+ul.k-panelbar {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 2em;
+}
+.accordion-content.k-content {
+  padding: 1em .5em 1em;
+  background: #f2f8fc;
+}
+.accordion-controls {
+  /*clear: left;*/
+  text-align: right;
+}
+ul.accordion .btn-plus {
+  margin: 1em 0 1em;
+}
+.accordion-content .input-pair-container {
+  margin-left: .5em;
+}
+
+/* Pagination */
+ul.k-pager-numbers {
+  line-height: 2em;
+}
+/* div surrounding the pagination */
+.k-pager-wrap {
+  padding: 1em 0 1em 1em;
+}
+
+/* when javascript injects these spans, this will hide them when a column header gets sorted */
+th.k-header[data-dir="asc"] a.k-link span.fa-sort ,
+th.k-header[data-dir="desc"] a.k-link span.fa-sort {
+  display: none;
+}
+/*
+.k-header .k-link span.k-icon {
+  font-family: 'FontAwesome';
+  background-image: none;
+  line-height: 1;
+  font-size: 1em;
+
+}
+.k-header .k-link span.k-i-arrow-s:before {
+  content: "\f0dd";
+}
+.k-header .k-link span.k-i-arrow-n:before {
+  content: "\f0de";
+}
+*/
+/* the sorting icon on the kendo tables */
+th span.fa-sort {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* Attached date picker on the paystub page brings calendar chooser close to table */
+.pay-stub-date-range-container {
+  padding: .75em;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+}
+/**/
+.k-grid-header .k-link:link, 
+.k-grid-header .k-link:visited, 
+.k-grid-header .k-nav-current.k-state-hover .k-link, 
+.k-grouping-header .k-link {
+  color: #555;
+}
+/* This is the "today" link in the footer of the calendar dropdown */
+.k-nav-today {
+  background: transparent;
+}
+
+/* This so validation warnings show up right by the field they pertain to */
+span.k-widget.k-tooltip.k-tooltip-validation.k-invalid-msg {
+  position: absolute !important;
+  z-index: 1000 !important;
+}
+/* when a filel*/
+.k-invalid {
+    border: 1px solid red;
+}
+
+/* The background of calendar chooser*/
+.k-animation-container {
+  /*background: white;*/ /* DSS commented out to remove white shadow behing client dropdown in header */
+}
+
+/* Input boxes */
+.k-textbox, 
+.k-autocomplete, 
+.k-dropdown-wrap, 
+.k-picker-wrap, 
+.k-numeric-wrap {
+
+}
+
+
+
+/* 
+  ___  ___    ___  _____  ___  ___ 
+ | __|/ _ \  / _ \|_   _|| __|| _ \
+ | _|| (_) || (_) | | |  | _| |   /
+ |_|  \___/  \___/  |_|  |___||_|_\
+                                   
+FOOTER */
+
+.footer {
+  background: white;
+  border-top: 2px solid #007bc3;
+  margin-top: 2em;
+  padding: 1em;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 4em;
+}
+.ie {
+  display: none;
+}
+
+
+/*
+  ___   _    ___  ___    ___  ___  ___  ___  ___  ___  ___  ___ 
+ | _ \ /_\  / __|| __|  / __|| _ \| __|/ __||_ _|| __||_ _|/ __|
+ |  _// _ \| (_ || _|   \__ \|  _/| _|| (__  | | | _|  | || (__ 
+ |_| /_/ \_\\___||___|  |___/|_|  |___|\___||___||_|  |___|\___|
+                                                                
+*/
+
+/* EMPLOYEE PAYROLL */
+.employee-table-avatar,
+.employee-avatar .avatar,
+.contractor-avatar .avatar {
+  border: 1px solid red;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+  border: 3px solid #fff;
+  margin-right: 0.28571428571429em;
+  max-width: 3.571428571em; /* 50/14px */
+}
+.employee-table-avatar {
+  float: left;
+}
+td.employee-cell {
+  line-height: 1.5em;
+}
+
+.employee-cell span.name {
+  margin-top: .5em;
+  display: block;
+}
+.employee-cell i.sub-type {
+  font-style: italic;
+  font-size: .857142857em;
+}
+
+.popover.right {
+  margin-left: 20px;
+  margin-top: -20px;
+}
+
+
+/* YOUR PROFILE */
+
+.profile-image-container {
+  float: left;
+  width: 165px;
+}
+.profile-image-container img {
+  width: 165px;
+  margin-bottom: 1em;
+}
+.profile-upload-button-container {}
+.profile-image-container p {
+  font-size: .785714286em;
+  margin: 1em 0;
+}
+.profile-details-container {
+  margin-left: 195px;
+}
+.profile-details li {
+  display: block;
+  font-weight: 300;
+  float: left;
+  /* width: 165px; use this for < 768px */
+  widtH: 25%;
+  line-height: 1;
+  min-height: 5em;
+}
+.profile-details li label {
+  display: block;
+  font-weight: 500;
+}
+
+/* REPORTS */
+
+.standard-reports-container, .tax-returns-container {
+}
+.filter-date {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: .357142857em; /* 5/14px */
+}
+.filter-container {
+  float: left;
+  width: 400px;
+}
+.results-container {
+  margin-left: 430px;
+  max-width: 1000px;
+}
+
+
+@media (max-width: 999px) {
+    .input-pair {
+        width: 100%;
+    }
+    .ip-30,
+    .ip-50,
+    .ip-70,
+    .ip-100 {
+      padding-right: 1em;
+    }
+    #taxPanels .input-pair label {
+    height: auto;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar-nav {
+       margin-left: -15px;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: white;
+      padding-left: 1.5em;
+    }
+    .navbar-default .navbar-nav > li > a {
+      padding: .75em 1em;
+      text-align: left;
+      border: none;
+    }
+    .navbar-default .navbar-nav > li {
+       width: auto;
+       margin-right: -30px;
+    }
+    .navbar-default .navbar-nav > li > a:hover {
+       background: transparent;
+       moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    a.fa.fa-question-circle {
+      margin-right: 0px;
+}
+}
+
+
+/* 
+  CSS By Jeph Kryzak - Credera UX
+  ASCII font "Small" (Fitted)
+*/

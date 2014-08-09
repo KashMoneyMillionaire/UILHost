@@ -1,5 +1,4 @@
-﻿using System;
-using UILHost.Infrastructure.Entity;
+﻿using UILHost.Infrastructure.Entity;
 
 namespace UILHost.Infrastructure.Domain
 {

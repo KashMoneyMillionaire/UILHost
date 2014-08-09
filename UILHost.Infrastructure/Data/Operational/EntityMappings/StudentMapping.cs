@@ -22,7 +22,9 @@ namespace UILHost.Infrastructure.Data.Operational.EntityMappings
             Property(c => c.LastName);
             Property(c => c.Grade);
 
-            HasRequired(o => o.School);
+            HasRequired(o => o.School)
+                .WithMany(s => s.Students)
+                .WillCascadeOnDelete(true);
         }
     }
 }

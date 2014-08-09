@@ -1,6 +1,4 @@
-﻿using UILHost.Infrastructure;
-using UILHost.Infrastructure.IoC;
-using UILHost.Infrastructure.Services;
+﻿using UILHost.Infrastructure.Services;
 using UILHost.Infrastructure.Services.Interface;
 
 namespace UILHost.Infrastructure.IoC
@@ -9,8 +7,9 @@ namespace UILHost.Infrastructure.IoC
     {
         public override void Load()
         {
-            //base.BindForTransientScope<IUserProfileService, UserProfileService>();
+            base.BindForTransientScope<IMeetService, MeetService>();
             base.BindForTransientScope<IStateService, StateService>();
+            base.BindForTransientScope<ITeacherService, TeacherService>();
 
             var portalRootUrl = AppConfigFacade.WebPortalRootUrl.Trim().TrimEnd('/');
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Tests", "UILHost.Tests\UILHost.Tests.csproj", "{D4B1D307-FFAD-4F34-87FE-AC582D170C85}"
 EndProject
@@ -29,6 +29,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Patterns.Repository.EF6", "UILHost.Patterns.Repository.EF6\UILHost.Patterns.Repository.EF6.csproj", "{52222E57-D1B1-422E-8F33-621B0B4A0A5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILHost.Patterns.Service", "UILHost.Patterns.Service\UILHost.Patterns.Service.csproj", "{3752F79E-B118-49B1-A436-4F70F88835ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{544D6F65-89FD-4DC4-9D59-F3BED9930D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

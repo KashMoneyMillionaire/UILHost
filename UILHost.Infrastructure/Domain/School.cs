@@ -9,7 +9,8 @@ namespace UILHost.Infrastructure.Domain
         public string Name { get; set; }
         public Classification Classification { get; set; }
         public Address Address { get; set; }
-        public UserProfile MeetLeader { get; set; }
+        public List<Teacher> Teachers { get; set; }
         public List<Student> Students { get; set; }
+        public List<Meet> HostedMeets { get; set; }
     }
 }

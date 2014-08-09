@@ -39,51 +39,50 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Operational\Migrations\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="AppConfigFacade.cs" />
-    <Compile Include="ChangeDataCapture\ChangeDataCaptureEntityState.cs" />
-    <Compile Include="ChangeDataCapture\ChangeDataCapturePropertyState.cs" />
-    <Compile Include="ChangeDataCapture\ChangeDataCaptureStateManager.cs" />
-    <Compile Include="ChangeDataCapture\HideFromChangeDataCaptureAttribute.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Data\Operational\EntityMappings\ChangeDataAuditDetailMapping.cs" />
-    <Compile Include="Data\Operational\EntityMappings\ChangeDataAuditMapping.cs" />
-    <Compile Include="Data\Operational\OperationalDataContextInitializer.cs" />
     <Compile Include="Data\Operational\EntityMappings\AddressMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\EventMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\EventStudentMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\MeetEventMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\MeetMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\MeetSchoolMapping.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Data\Operational\EntityMappings\SchoolMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\StateMapping.cs" />
     <Compile Include="Data\Operational\EntityMappings\StudentMapping.cs" />
-    <Compile Include="Data\Operational\EntityMappings\UserProfileMapping.cs" />
+    <Compile Include="Data\Operational\EntityMappings\TeacherMapping.cs" />
     <Compile Include="Data\OperationalDataContext.cs" />
-    <Compile Include="Data\Patterns\RepositoryExt.cs" />
-    <Compile Include="Data\Patterns\UnitOfWorkCommitActivities.cs" />
-    <Compile Include="Data\Patterns\UnitOfWorkExt.cs" />
+    <Compile Include="Data\Operational\Migrations\201408060254237_Initial.cs" />
+    <Compile Include="Data\Operational\Migrations\201408060254237_Initial.Designer.cs">
+      <DependentUpon>201408060254237_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Address.cs" />
-    <Compile Include="Domain\ChangeDataAudit.cs" />
-    <Compile Include="Domain\ChangeDataAuditDetail.cs" />
     <Compile Include="Domain\Event.cs" />
     <Compile Include="Domain\EventStudent.cs" />
     <Compile Include="Domain\Meet.cs" />
     <Compile Include="Domain\MeetEvent.cs" />
+    <Compile Include="Domain\MeetSchool.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Domain\School.cs" />
     <Compile Include="Domain\State.cs" />
     <Compile Include="Domain\Student.cs" />
-    <Compile Include="Domain\UserProfile.cs" />
+    <Compile Include="Domain\Teacher.cs" />
     <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Entity\IEntityBase.cs" />
     <Compile Include="IoC\DependencyResolver.cs" />
     <Compile Include="IoC\ModuleBase.cs" />
     <Compile Include="IoC\RepositoryModule.cs" />
     <Compile Include="IoC\ServiceModule.cs" />
+    <Compile Include="Data\Operational\Migrations\Configuration.cs" />
+    <Compile Include="Repository\TeacherRepository.cs" />
     <Compile Include="Repository\MeetRepository.cs" />
     <Compile Include="Repository\StateRepository.cs" />
     <Compile Include="SaltedHash.cs" />
+    <Compile Include="Services\Interface\ITeacherService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\Interface\IMeetService.cs" />
     <Compile Include="Services\Interface\IStateService.cs" />
     <Compile Include="Services\MeetService.cs" />
@@ -109,7 +108,22 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.1\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.2\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -119,17 +133,29 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8854.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial">
+      <HintPath>..\packages\System.Spatial.5.6.2\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8854.1\lib\net40\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Http.OData, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.2.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UILHost.Common\UILHost.Common.csproj">
@@ -149,14 +175,22 @@
       <Name>UILHost.Patterns.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Operational\Migrations\201408060254237_Initial.resx">
+      <DependentUpon>201408060254237_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Patterns\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
     <PostBuildEvent>
     if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8854.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
     if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8854.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
